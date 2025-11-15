@@ -1,0 +1,23 @@
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.tmp
+*.bak
+*.log
+
+# Node modules (如果以后使用)
+node_modules/
+package-lock.json
+
+# 其他
+.env

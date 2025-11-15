@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 智能咖啡机</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .sub-navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-link {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .home-link:hover {
+            color: #0070c9;
+        }
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-content {
+            padding: 60px 0;
+        }
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 0 0 30px 40px;
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .contact-info h2 {
+            color: #0e4194;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0e4194;
+            padding-bottom: 10px;
+        }
+        .contact-item {
+            margin-bottom: 25px;
+        }
+        .contact-item h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .contact-item p {
+            color: #666;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        .contact-item a {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .form-section h2 {
+            color: #0e4194;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0e4194;
+            padding-bottom: 10px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0e4194;
+            box-shadow: 0 0 0 3px rgba(14, 65, 148, 0.1);
+        }
+        .submit-btn {
+            background-color: #0e4194;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0a3470;
+        }
+        .map-section {
+            padding: 0 40px;
+            margin-top: 40px;
+        }
+        .map-title {
+            color: #0e4194;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .map-container {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .office-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 40px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .office-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        .office-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+        .office-card h3 {
+            color: #0e4194;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .office-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .office-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .contact-grid,
+            .form-grid,
+            .office-cards {
+                padding: 0 16px;
+            }
+            .contact-info,
+            .form-section {
+                padding: 30px;
+            }
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sub-navbar">
+        <div class="container">
+            <a href="index.html" class="home-link">← 智能咖啡机</a>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 联系我们
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">联系我们</h1>
+            <p>我们在这里，期待您的咨询</p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="contact-wrapper">
+            <a href="index.html" class="back-link">← 返回首页</a>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>联系方式</h2>
+
+                    <div class="contact-item">
+                        <h3>总部地址</h3>
+                        <p>北京市朝阳区建国路88号SOHO现代城</p>
+                        <p>邮编：100022</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>客服热线</h3>
+                        <p><a href="tel:4006662888">400-666-2888</a></p>
+                        <p>周一至周日 9:00-21:00</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>邮箱</h3>
+                        <p><a href="mailto:service@coffee-machine.com">service@coffee-machine.com</a></p>
+                        <p>工作时间内24小时回复</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>微信客服</h3>
+                        <p>扫描二维码添加</p>
+                        <p>微信ID：coffee-machine-service</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>售后服务</h3>
+                        <p><a href="service.html">查看服务网点</a></p>
+                        <p>全国50个城市覆盖</p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h2>工作时间</h2>
+
+                    <div class="contact-item">
+                        <h3>销售咨询</h3>
+                        <p>周一至周日</p>
+                        <p>9:00-21:00</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>技术支持</h3>
+                        <p>周一至周日</p>
+                        <p>9:00-21:00</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>售后服务</h3>
+                        <p>周一至周六</p>
+                        <p>9:00-18:00</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>上门维修</h3>
+                        <p>周一至周六</p>
+                        <p>预约制服务</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>注意事项</h3>
+                        <p>节假日有值班客服</p>
+                        <p>咨询不额外收费</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>在线留言</h2>
+                <p style="color: #666; margin-bottom: 30px;">有任何问题或建议，欢迎通过以下表格与我们联系，我们将在24小时内回复您。</p>
+
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">姓名 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">电话 *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">咨询类型 *</label>
+                            <select id="category" name="category" required>
+                                <option value="">请选择咨询类型</option>
+                                <option value="sales">产品咨询</option>
+                                <option value="support">技术支持</option>
+                                <option value="service">售后服务</option>
+                                <option value="cooperation">合作洽谈</option>
+                                <option value="feedback">意见反馈</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">城市 *</label>
+                            <input type="text" id="city" name="city" placeholder="请输入您所在城市" required>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="message">留言内容 *</label>
+                            <textarea id="message" name="message" placeholder="请详细描述您的问题或建议" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="submit-btn">提交留言</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="map-section">
+                <h2 class="map-title">公司位置</h2>
+                <div class="map-container">
+                    📍 北京市朝阳区建国路88号SOHO现代城<br>
+                    (点击可在地图中查看详细位置)
+                </div>
+            </div>
+
+            <div class="office-cards">
+                <div class="office-card">
+                    <h3>北京总部</h3>
+                    <p>北京市朝阳区建国路88号</p>
+                    <p>SOHO现代城A座18楼</p>
+                    <p>电话：010-XXXX-XXXX</p>
+                </div>
+
+                <div class="office-card">
+                    <h3>深圳研发中心</h3>
+                    <p>深圳市南山区科技南路</p>
+                    <p>粤海国际中心A座20楼</p>
+                    <p>电话：0755-XXXX-XXXX</p>
+                </div>
+
+                <div class="office-card">
+                    <h3>上海分公司</h3>
+                    <p>上海市浦东新区世纪大道</p>
+                    <p>陆家嘴环球金融中心15楼</p>
+                    <p>电话：021-XXXX-XXXX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

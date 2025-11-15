@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品注册 - 智能咖啡机</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .sub-navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-link {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .home-link:hover {
+            color: #0070c9;
+        }
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-content {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #0e4194;
+        }
+        .form-submit {
+            background-color: #0e4194;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .form-submit:hover {
+            background-color: #0a3470;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sub-navbar">
+        <div class="container">
+            <a href="index.html" class="home-link">← 智能咖啡机</a>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 产品注册
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">产品注册</h1>
+            <p>注册您的产品以享受延保和专属服务</p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="form-container">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label class="form-label">产品型号 *</label>
+                        <select class="form-select" required>
+                            <option value="">请选择产品型号</option>
+                            <option value="CM-L100">智能咖啡机 Lite (CM-L100)</option>
+                            <option value="CM-P300">智能咖啡机 Pro (CM-P300)</option>
+                            <option value="CM-U500">智能咖啡机 Ultra (CM-U500)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">产品序列号 *</label>
+                        <input type="text" class="form-input" placeholder="请输入产品背面的序列号" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">购买日期 *</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">您的姓名 *</label>
+                        <input type="text" class="form-input" placeholder="请输入姓名" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">手机号码 *</label>
+                        <input type="tel" class="form-input" placeholder="请输入手机号" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">电子邮箱</label>
+                        <input type="email" class="form-input" placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">购买渠道</label>
+                        <select class="form-select">
+                            <option value="">请选择购买渠道</option>
+                            <option value="official">官方网站</option>
+                            <option value="jd">京东</option>
+                            <option value="tmall">天猫</option>
+                            <option value="offline">线下门店</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit">提交注册</button>
+                    <a href="index.html" class="back-link">← 返回首页</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('注册成功！我们已收到您的产品注册信息，稍后会发送确认邮件至您的邮箱。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

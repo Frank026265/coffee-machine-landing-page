@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司简介 - 智能咖啡机</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .sub-navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-link {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .home-link:hover {
+            color: #0070c9;
+        }
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-content {
+            padding: 60px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .section-block {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .section-block h2 {
+            color: #0e4194;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0e4194;
+            padding-bottom: 10px;
+        }
+        .section-block h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+        }
+        .section-block p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #0e4194;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            color: #0e4194;
+            font-weight: 500;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding-left: 40px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #0e4194;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #0e4194;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: 30px;
+            background: #0e4194;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-year {
+            font-weight: 600;
+            color: #0e4194;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .timeline-content {
+            color: #666;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .value-card {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #0e4194;
+        }
+        .value-card h4 {
+            color: #0e4194;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #666;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .team-member {
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+        .team-member:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .member-avatar {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        .member-info {
+            padding: 20px;
+        }
+        .member-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .member-position {
+            font-size: 0.9rem;
+            color: #0e4194;
+            margin-bottom: 8px;
+        }
+        .member-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .achievement-card {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .achievement-number {
+            font-size: 2.5rem;
+            color: #0e4194;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .achievement-label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .values-grid,
+            .achievements {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .values-grid,
+            .achievements,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sub-navbar">
+        <div class="container">
+            <a href="index.html" class="home-link">← 智能咖啡机</a>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 公司简介
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">公司简介</h1>
+            <p>致力于打造世界一流的智能家电产品</p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+
+            <div class="section-block">
+                <h2>关于我们</h2>
+                <p>智能咖啡机公司成立于2018年，是一家专注于研发、生产和销售高端智能咖啡机的创新型企业。我们致力于将专业级咖啡体验带入千万家庭，让每个人都能享受到咖啡厅级别的咖啡品质。</p>
+                <p>公司拥有超过100名研发工程师和设计师，在深圳、北京、杭州等地设立研发中心和生产基地。我们与全球顶级咖啡机制造商合作，引进先进的生产工艺和技术，确保每一台产品都达到国际标准。</p>
+
+                <div class="highlight-box">
+                    <p>截至2024年，我们的产品已销售超过50万台，用户遍布全国50个城市，获得无数用户的信赖和好评。</p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>公司成就</h2>
+                <div class="achievements">
+                    <div class="achievement-card">
+                        <div class="achievement-number">50+</div>
+                        <div class="achievement-label">万台销售</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">100+</div>
+                        <div class="achievement-label">研发人员</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">50+</div>
+                        <div class="achievement-label">个城市覆盖</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">99%</div>
+                        <div class="achievement-label">用户满意度</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>发展历程</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018年</div>
+                        <div class="timeline-content">公司成立，推出第一代咖啡机原型，获得多项创新奖</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019年</div>
+                        <div class="timeline-content">发布Lite款产品，年销售超过5万台，获得消费者高度认可</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020年</div>
+                        <div class="timeline-content">推出Pro款和Ultra款，获得"年度创新产品"奖，销售突破10万台</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021年</div>
+                        <div class="timeline-content">在全国建立50个服务网点，获得"消费者最信赖品牌"称号</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022年</div>
+                        <div class="timeline-content">启动国际化战略，产品出口至欧美等国家，获得多项专利</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023年</div>
+                        <div class="timeline-content">推出APP智能控制系统，销售超过30万台，进入国内前三</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024年</div>
+                        <div class="timeline-content">累计销售超过50万台，成为行业领军企业，获得"最佳品牌形象奖"</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>使命和愿景</h2>
+                <h3>企业使命</h3>
+                <p>为全球消费者提供高品质、高性能的智能咖啡机产品，让每个人都能轻松享受专业级的咖啡体验，提升生活品质。</p>
+
+                <h3>企业愿景</h3>
+                <p>成为全球领先的智能家电制造商，通过持续的技术创新和服务优化，为数百万家庭带来便利、健康和快乐的生活方式。</p>
+
+                <h3>企业价值观</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h4>创新</h4>
+                        <p>不断突破技术边界，追求产品卓越</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>品质</h4>
+                        <p>精益求精，确保每台产品完美无缺</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>诚信</h4>
+                        <p>以真诚对待客户，践行承诺</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>核心团队</h2>
+                <p>我们的团队由来自全球顶级企业的精英组成，拥有平均15年以上的行业经验。</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">CEO</div>
+                        <div class="member-info">
+                            <div class="member-name">王建鹏</div>
+                            <div class="member-position">创始人 & CEO</div>
+                            <div class="member-desc">清华大学工学博士，曾任国际顶级家电品牌副总裁</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">CTO</div>
+                        <div class="member-info">
+                            <div class="member-name">李明</div>
+                            <div class="member-position">CTO & 首席工程师</div>
+                            <div class="member-desc">北京大学计算机博士，20年智能硬件研发经验</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">CMO</div>
+                        <div class="member-info">
+                            <div class="member-name">张颖</div>
+                            <div class="member-position">市场总监</div>
+                            <div class="member-desc">美国MBA，曾主导多个国际品牌市场策略</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">CFO</div>
+                        <div class="member-info">
+                            <div class="member-name">陈浩</div>
+                            <div class="member-position">财务总监</div>
+                            <div class="member-desc">国际注册财务分析师，12年融资经验</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>企业荣誉</h2>
+                <ul>
+                    <li>2020年获得"年度创新产品奖"</li>
+                    <li>2021年获得"消费者最信赖品牌"称号</li>
+                    <li>2022年获得"国家高新技术企业"认证</li>
+                    <li>2023年获得"最佳品牌形象奖"</li>
+                    <li>获得多项国家专利（共28项）</li>
+                    <li>通过ISO 9001质量管理体系认证</li>
+                    <li>获得CCC强制认证、CE认证、FCC认证</li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - 智能咖啡机</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .sub-navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-link {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .home-link:hover {
+            color: #0070c9;
+        }
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-content {
+            padding: 60px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0e4194;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            margin-top: 16px;
+            line-height: 1.8;
+            color: #666;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .category-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0e4194;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sub-navbar">
+        <div class="container">
+            <a href="index.html" class="home-link">← 智能咖啡机</a>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 常见问题
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">常见问题</h1>
+            <p>快速找到您需要的答案</p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+
+            <h2 class="category-title">购买相关</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    如何选择适合我的咖啡机型号？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Lite款（¥1,299）：</strong>适合初次接触咖啡机的用户，操作简单，性价比高。</p>
+                    <p><strong>Pro款（¥2,999）：</strong>适合追求品质的咖啡爱好者，具备智能温控和快速加热功能，推荐购买。</p>
+                    <p><strong>Ultra款（¥4,999）：</strong>适合咖啡发烧友和家庭聚会使用，支持12种饮品模式和APP控制，功能最全面。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    有哪些购买渠道？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>您可以通过以下渠道购买：</p>
+                    <ul>
+                        <li>官方网站（支持货到付款）</li>
+                        <li>京东旗舰店</li>
+                        <li>天猫旗舰店</li>
+                        <li>线下体验店（全国主要城市）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    是否支持退换货？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>我们提供7天无理由退换货服务（商品需保持完好）。如产品存在质量问题，支持30天内免费退换货。</p>
+                </div>
+            </div>
+
+            <h2 class="category-title">使用相关</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    首次使用需要注意什么？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>首次使用前请：</p>
+                    <ul>
+                        <li>用清水冲洗水箱2-3次</li>
+                        <li>运行2-3次空转清洗管路</li>
+                        <li>阅读使用手册了解基本操作</li>
+                        <li>确保放置在平稳干燥的台面</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    可以使用咖啡粉和咖啡豆吗？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Lite和Pro款：</strong>仅支持咖啡粉</p>
+                    <p><strong>Ultra款：</strong>同时支持咖啡粉和咖啡豆（内置研磨功能）</p>
+                    <p>建议使用新鲜研磨的咖啡粉以获得最佳口感。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    多久需要清洁一次？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>日常清洁：</strong>每次使用后清空咖啡渣盒，擦拭机身</p>
+                    <p><strong>深度清洁：</strong>每周一次，清洗冲泡头和水箱</p>
+                    <p><strong>除垢保养：</strong>每3个月一次，使用除垢剂清洁管路</p>
+                </div>
+            </div>
+
+            <h2 class="category-title">售后相关</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    保修期是多久？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Lite款：</strong>1年全国联保</p>
+                    <p><strong>Pro款：</strong>2年全国联保</p>
+                    <p><strong>Ultra款：</strong>2年全国联保</p>
+                    <p>注册产品后可免费延保6个月。保修期内免费维修，保修期外仅收取成本费。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    如何申请售后服务？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>您可以通过以下方式申请售后：</p>
+                    <ul>
+                        <li>拨打客服热线：400-XXX-XXXX</li>
+                        <li>官网在线客服</li>
+                        <li>微信客服咨询</li>
+                        <li>前往线下服务中心</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    配件在哪里购买？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>原装配件可在以下渠道购买：</p>
+                    <ul>
+                        <li>官方网站配件商城</li>
+                        <li>京东/天猫旗舰店</li>
+                        <li>线下服务中心</li>
+                        <li>授权经销商</li>
+                    </ul>
+                    <p>建议使用原装配件以确保产品性能和安全。</p>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

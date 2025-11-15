@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>售后服务 - 智能咖啡机</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .sub-navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-link {
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .home-link:hover {
+            color: #0070c9;
+        }
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #0e4194;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #0e4194 0%, #0070c9 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-content {
+            padding: 60px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .section-block {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .section-block h2 {
+            color: #0e4194;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0e4194;
+            padding-bottom: 10px;
+        }
+        .section-block h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+        }
+        .section-block p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .section-block ul, .section-block ol {
+            margin-left: 20px;
+            line-height: 1.8;
+            color: #666;
+        }
+        .section-block li {
+            margin-bottom: 8px;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .step {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .step-number {
+            font-size: 2rem;
+            color: #0e4194;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .step-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .service-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .point-card {
+            background: #f0f7ff;
+            padding: 20px;
+            border-left: 4px solid #0e4194;
+            border-radius: 4px;
+        }
+        .point-card strong {
+            color: #0e4194;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .point-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0e4194;
+            box-shadow: 0 0 0 3px rgba(14, 65, 148, 0.1);
+        }
+        .submit-btn {
+            background-color: #0e4194;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0a3470;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #0e4194;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .service-points {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="sub-navbar">
+        <div class="container">
+            <a href="index.html" class="home-link">← 智能咖啡机</a>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 售后服务
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">售后服务</h1>
+            <p>专业的服务，只为您的满意</p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+
+            <div class="section-block">
+                <h2>维修流程</h2>
+                <p>我们提供快速、专业的维修服务，确保您的咖啡机始终处于最佳状态。</p>
+
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">在线报修</div>
+                        <div class="step-desc">填写报修表单或致电客服</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">问题确认</div>
+                        <div class="step-desc">客服确认故障并评估</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">上门服务</div>
+                        <div class="step-desc">工程师上门检修维修</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">完成验证</div>
+                        <div class="step-desc">客户验收，出具保修单</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>服务网点查询</h2>
+                <p>我们在全国主要城市建立了专业的服务网点，为您提供便捷的服务。</p>
+
+                <h3>北京地区</h3>
+                <div class="service-points">
+                    <div class="point-card">
+                        <strong>北京朝阳服务中心</strong>
+                        <p>地址：北京市朝阳区建国路88号</p>
+                        <p>电话：010-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                    <div class="point-card">
+                        <strong>北京海淀服务中心</strong>
+                        <p>地址：北京市海淀区中关村大街1号</p>
+                        <p>电话：010-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                </div>
+
+                <h3>上海地区</h3>
+                <div class="service-points">
+                    <div class="point-card">
+                        <strong>上海浦东服务中心</strong>
+                        <p>地址：上海市浦东新区世纪大道888号</p>
+                        <p>电话：021-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                    <div class="point-card">
+                        <strong>上海静安服务中心</strong>
+                        <p>地址：上海市静安区南京西路999号</p>
+                        <p>电话：021-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                </div>
+
+                <h3>广州地区</h3>
+                <div class="service-points">
+                    <div class="point-card">
+                        <strong>广州天河服务中心</strong>
+                        <p>地址：广州市天河区体育东路777号</p>
+                        <p>电话：020-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                    <div class="point-card">
+                        <strong>广州越秀服务中心</strong>
+                        <p>地址：广州市越秀区中山路555号</p>
+                        <p>电话：020-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                </div>
+
+                <h3>深圳地区</h3>
+                <div class="service-points">
+                    <div class="point-card">
+                        <strong>深圳南山服务中心</strong>
+                        <p>地址：深圳市南山区科技南路666号</p>
+                        <p>电话：0755-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                    <div class="point-card">
+                        <strong>深圳福田服务中心</strong>
+                        <p>地址：深圳市福田区中心三路999号</p>
+                        <p>电话：0755-XXXX-XXXX</p>
+                        <p>营业时间：09:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>在线报修表单</h2>
+                <p>请填写以下信息，我们将在24小时内与您联系。</p>
+
+                <form>
+                    <div class="form-group">
+                        <label for="name">您的姓名 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">联系电话 *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">产品型号 *</label>
+                        <select id="model" name="model" required>
+                            <option value="">请选择产品型号</option>
+                            <option value="CM-L100">智能咖啡机 Lite (CM-L100)</option>
+                            <option value="CM-P300">智能咖啡机 Pro (CM-P300)</option>
+                            <option value="CM-U500">智能咖啡机 Ultra (CM-U500)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purchase-date">购买日期 *</label>
+                        <input type="date" id="purchase-date" name="purchase-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issue-type">故障类型 *</label>
+                        <select id="issue-type" name="issue-type" required>
+                            <option value="">请选择故障类型</option>
+                            <option value="power">无法开机</option>
+                            <option value="heating">加热问题</option>
+                            <option value="extraction">萃取问题</option>
+                            <option value="cleaning">清洁相关</option>
+                            <option value="noise">噪音问题</option>
+                            <option value="leak">漏水问题</option>
+                            <option value="other">其他问题</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">故障描述 *</label>
+                        <textarea id="description" name="description" placeholder="请详细描述故障现象，包括出现时间、频率等信息" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">详细地址 *</label>
+                        <input type="text" id="address" name="address" placeholder="请输入您的详细地址，便于上门服务" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service-time">上门服务时间 *</label>
+                        <select id="service-time" name="service-time" required>
+                            <option value="">请选择服务时间</option>
+                            <option value="morning">上午 (9:00-12:00)</option>
+                            <option value="afternoon">下午 (12:00-17:00)</option>
+                            <option value="flexible">灵活安排</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">提交报修</button>
+                </form>
+            </div>
+
+            <div class="section-block">
+                <h2>保修政策</h2>
+                <h3>保修期限</h3>
+                <ul>
+                    <li><strong>Lite款：</strong>1年全国联保</li>
+                    <li><strong>Pro款：</strong>2年全国联保</li>
+                    <li><strong>Ultra款：</strong>2年全国联保</li>
+                </ul>
+
+                <h3>保修范围</h3>
+                <ul>
+                    <li>产品因制造质量问题导致的故障</li>
+                    <li>正常使用中出现的机械故障</li>
+                    <li>电气组件失效</li>
+                    <li>不包括人为损伤、事故造成的损坏</li>
+                    <li>不包括因使用不当导致的问题</li>
+                </ul>
+
+                <h3>保修权益</h3>
+                <ul>
+                    <li>保修期内免费维修和更换零部件</li>
+                    <li>提供免费上门服务（仅限保修期内）</li>
+                    <li>注册产品后可免费延保6个月</li>
+                    <li>保修期外维修仅收取零部件和工时费用</li>
+                </ul>
+            </div>
+
+            <div class="section-block">
+                <h2>常用联系方式</h2>
+                <ul>
+                    <li><strong>客服热线：</strong>400-XXX-XXXX（周一至周日 9:00-21:00）</li>
+                    <li><strong>在线客服：</strong>官网实时咨询</li>
+                    <li><strong>微信客服：</strong>微信公众号留言或客服二维码</li>
+                    <li><strong>邮箱：</strong>service@coffee-machine.com</li>
+                    <li><strong>地址：</strong>北京市朝阳区建国路88号SOHO现代城</li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
